@@ -282,10 +282,10 @@
     <h1 class="name">Nathaniel<br><em>builds with numbers.</em></h1>
     <p class="lede">Computational &amp; applied mathematics, CMU. I like problems that sit between math and code — pricing models, optimization, and systems that have to be both correct and fast. Below is a working set of projects, not a highlight reel.</p>
     <div class="hero-cta">
-      <a class="btn primary" href="mailto:your-email@example.com">Email me</a>
-      <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="#" target="_blank" rel="noopener">Resume (PDF)</a>
+      <a class="btn primary" href="mailto:ndmueller29@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/ndmueller29" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/nathaniel-mueller-84b9762b6/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="Mueller_Nathaniel_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
     </div>
   </div>
 </section>
@@ -301,114 +301,140 @@
     <!-- PROJECT 1 -->
     <article class="project reveal">
       <div class="project-top">
-        <h3><a href="#" target="_blank" rel="noopener">Portfolio Optimization Engine</a></h3>
+        <h3><a href="#" target="_blank" rel="noopener">Databricks Checkpointing System</a></h3>
         <div class="project-links">
           <a href="#" target="_blank" rel="noopener">code ↗</a>
-          <a href="#" target="_blank" rel="noopener">demo ↗</a>
         </div>
       </div>
-      <span class="marginalia">— started as a class project, kept going</span>
+      <span class="marginalia">— built during my internship at Federated Hermes</span>
       <div class="project-body">
         <div class="project-field">
           <div class="label">Problem</div>
-          <p>Retail investors don't have easy access to constrained mean-variance optimization with realistic transaction costs.</p>
+          <p>Sequential overnight notebook workflows on the Enterprise Data Platform had to rerun from scratch after any single failure.</p>
         </div>
         <div class="project-field">
           <div class="label">Approach</div>
-          <p>Convex optimization over a rolling asset universe, backtested against historical price data with turnover penalties.</p>
+          <p>Designed a checkpointing layer in Python and SQL that preserves prior successful outputs, so a failed step can recover without redoing earlier work.</p>
         </div>
         <div class="project-field full">
           <div class="label">Result</div>
-          <p>Backtest showed a measurable Sharpe improvement over an equal-weight baseline across a 5-year window.<span class="qed"></span></p>
+          <p>Cut full reruns significantly and the notebooks are still in production use by the Enterprise Data Platform team today.<span class="qed"></span></p>
         </div>
       </div>
       <div class="tags">
-        <span class="tag">Python</span><span class="tag">cvxpy</span><span class="tag">pandas</span><span class="tag">NumPy</span>
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Databricks</span>
       </div>
     </article>
 
     <!-- PROJECT 2 -->
     <article class="project reveal">
       <div class="project-top">
-        <h3><a href="#" target="_blank" rel="noopener">Options Pricing &amp; Greeks Simulator</a></h3>
+        <h3><a href="#" target="_blank" rel="noopener">Danish Recycling Classifier</a></h3>
         <div class="project-links">
           <a href="#" target="_blank" rel="noopener">code ↗</a>
         </div>
       </div>
-      <span class="marginalia">— Black-Scholes, then I got curious about the Monte Carlo error</span>
+      <span class="marginalia">— final project for my deep learning course in Copenhagen</span>
       <div class="project-body">
         <div class="project-field">
           <div class="label">Problem</div>
-          <p>Compare closed-form Black-Scholes pricing against Monte Carlo simulation and quantify convergence.</p>
+          <p>Denmark's recycling system sorts plastic bottles into three standardized categories, which most people struggle to identify correctly by eye.</p>
         </div>
         <div class="project-field">
           <div class="label">Approach</div>
-          <p>Vectorized Monte Carlo with variance reduction (antithetic variates), Greeks via finite differences.</p>
+          <p>Built and trained a convolutional neural network to classify bottle images into the three recyclable plastic types.</p>
         </div>
         <div class="project-field full">
           <div class="label">Result</div>
-          <p>Cut simulation runtime substantially versus a naive loop implementation while holding pricing error within a tight tolerance.<span class="qed"></span></p>
+          <p>Delivered a working image classifier as the capstone for my Artificial Neural Networks and Deep Learning course.<span class="qed"></span></p>
         </div>
       </div>
       <div class="tags">
-        <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Monte Carlo</span>
+        <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">CNNs</span>
       </div>
     </article>
 
     <!-- PROJECT 3 -->
     <article class="project reveal">
       <div class="project-top">
-        <h3><a href="#" target="_blank" rel="noopener">NYC Subway Delay Predictor</a></h3>
+        <h3><a href="#" target="_blank" rel="noopener">GPS Positioning via Nonlinear Least Squares</a></h3>
         <div class="project-links">
           <a href="#" target="_blank" rel="noopener">code ↗</a>
-          <a href="#" target="_blank" rel="noopener">writeup ↗</a>
         </div>
       </div>
-      <span class="marginalia">— built after one too many late trains</span>
+      <span class="marginalia">— numerical methods, applied to something I use every day</span>
       <div class="project-body">
         <div class="project-field">
           <div class="label">Problem</div>
-          <p>Predict delay likelihood on a given subway line using live MTA feed data.</p>
+          <p>GPS positioning from satellite signals is a nonlinear system, and solution accuracy depends heavily on satellite geometry.</p>
         </div>
         <div class="project-field">
           <div class="label">Approach</div>
-          <p>Feature engineering on time-of-day, weather, and historical patterns; gradient-boosted classifier.</p>
+          <p>Implemented the Gauss-Newton algorithm in Python to solve the positioning problem and analyzed system conditioning across multiple satellite configurations.</p>
         </div>
         <div class="project-field full">
           <div class="label">Result</div>
-          <p>Reached a solid precision/recall balance on held-out data, deployed as a small live dashboard.<span class="qed"></span></p>
+          <p>Quantified how satellite geometry affects solution stability, connecting a numerical methods technique to a real-world system.<span class="qed"></span></p>
         </div>
       </div>
       <div class="tags">
-        <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">MTA API</span><span class="tag">Flask</span>
+        <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Numerical Methods</span>
       </div>
     </article>
 
     <!-- PROJECT 4 -->
     <article class="project reveal">
       <div class="project-top">
-        <h3><a href="#" target="_blank" rel="noopener">Distributed Task Scheduler</a></h3>
+        <h3><a href="#" target="_blank" rel="noopener">Risk112 — Risk, from Scratch</a></h3>
         <div class="project-links">
           <a href="#" target="_blank" rel="noopener">code ↗</a>
         </div>
       </div>
-      <span class="marginalia">— the SWE-track project</span>
+      <span class="marginalia">— my first real object-oriented project</span>
       <div class="project-body">
         <div class="project-field">
           <div class="label">Problem</div>
-          <p>Learn distributed-systems fundamentals by building a scheduler that survives worker failures.</p>
+          <p>Recreate the board game Risk as a playable program, including its map, territory ownership, and turn logic.</p>
         </div>
         <div class="project-field">
           <div class="label">Approach</div>
-          <p>Leader election, heartbeat-based failure detection, and at-least-once task delivery across worker nodes.</p>
+          <p>Built in Python with object-oriented design and top-down decomposition, using recursive backtracking and pixel manipulation for the map.</p>
         </div>
         <div class="project-field full">
           <div class="label">Result</div>
-          <p>Handled simulated node failures without losing queued tasks, tested with a fault-injection harness.<span class="qed"></span></p>
+          <p>A fully playable version of Risk, and my first project that forced me to actually design a system before writing it.<span class="qed"></span></p>
         </div>
       </div>
       <div class="tags">
-        <span class="tag">Go</span><span class="tag">gRPC</span><span class="tag">Docker</span>
+        <span class="tag">Python</span><span class="tag">OOP</span><span class="tag">Data Structures</span>
+      </div>
+    </article>
+
+    <!-- PROJECT 5 -->
+    <article class="project reveal">
+      <div class="project-top">
+        <h3><a href="#" target="_blank" rel="noopener">StarSync — Intern Hackathon</a></h3>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">code ↗</a>
+        </div>
+      </div>
+      <span class="marginalia">— led this one as technical lead</span>
+      <div class="project-body">
+        <div class="project-field">
+          <div class="label">Problem</div>
+          <p>Employees wanted an easier way to manage their own personal stock trade requests without navigating internal tools by hand.</p>
+        </div>
+        <div class="project-field">
+          <div class="label">Approach</div>
+          <p>Led a team of interns to design a Power BI app around a custom-trained AI chatbot that handled trade requests conversationally.</p>
+        </div>
+        <div class="project-field full">
+          <div class="label">Result</div>
+          <p>Shipped a working prototype in the hackathon window while directing the team's technical decisions end to end.<span class="qed"></span></p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Power BI</span><span class="tag">AI Chatbot</span><span class="tag">Team Lead</span>
       </div>
     </article>
 
@@ -427,33 +453,38 @@
         <div class="label">Languages</div>
         <ul>
           <li>Python</li>
-          <li>C++</li>
-          <li>Go</li>
+          <li>C / C++</li>
           <li>SQL</li>
+          <li>Java</li>
+          <li>MATLAB</li>
+          <li>R</li>
         </ul>
       </div>
       <div class="skill-group">
         <div class="label">Data &amp; ML</div>
         <ul>
-          <li>pandas / NumPy</li>
-          <li>scikit-learn</li>
-          <li>PyTorch</li>
+          <li>NumPy / Pandas</li>
+          <li>PyTorch / TensorFlow</li>
+          <li>Keras</li>
+          <li>PySpark</li>
         </ul>
       </div>
       <div class="skill-group">
         <div class="label">Quant &amp; Math</div>
         <ul>
-          <li>Convex optimization</li>
-          <li>Stochastic processes</li>
-          <li>Monte Carlo methods</li>
+          <li>Math Finance</li>
+          <li>Operations Research</li>
+          <li>Differential Equations</li>
+          <li>Probability</li>
         </ul>
       </div>
       <div class="skill-group">
-        <div class="label">Tools</div>
+        <div class="label">Tools &amp; Platforms</div>
         <ul>
-          <li>Git / GitHub</li>
-          <li>Docker</li>
-          <li>Linux / bash</li>
+          <li>Databricks</li>
+          <li>Jupyter Notebook</li>
+          <li>MS Excel / Power Platform</li>
+          <li>Google Workspace</li>
         </ul>
       </div>
     </div>
@@ -468,9 +499,9 @@
       <span class="rule"></span>
     </div>
     <div class="about-grid">
-      <p>I studied computational and applied mathematics at Carnegie Mellon, where I spent most of my time at the intersection of numerical methods and software — the kind of work where a proof and a bug report can feel like the same task. I recently moved to New York City and I'm looking for a role in data science, quant analytics, or software engineering where that combination is useful.</p>
+      <p>I studied Mathematical Sciences with a concentration in Computational and Applied Mathematics at Carnegie Mellon, graduating with University Honors. A semester in Copenhagen studying artificial neural networks and touring tech start-ups pulled me further toward the software side of that math. Most recently I worked as a Data Engineering Intern at Federated Hermes, building tooling that's still in production use. I recently moved to New York City and I'm looking for a role in data science, quant analytics, or software engineering.</p>
       <div>
-        <div class="fact"><div class="k">Education</div><div class="v">B.S., Computational &amp; Applied Mathematics — Carnegie Mellon University</div></div>
+        <div class="fact"><div class="k">Education</div><div class="v">B.S., Mathematical Sciences (Computational &amp; Applied Math) — Carnegie Mellon University, May 2026</div></div>
         <div class="fact"><div class="k">Location</div><div class="v">New York, NY</div></div>
         <div class="fact"><div class="k">Looking for</div><div class="v">Data Science · Quant Analytics · Software Engineering</div></div>
       </div>
@@ -480,11 +511,11 @@
 
 <footer id="contact">
   <div class="wrap">
-    <p>Let's talk — <a href="mailto:your-email@example.com" style="color:var(--ink);">your-email@example.com</a></p>
+    <p>Let's talk — <a href="mailto:ndmueller29@gmail.com" style="color:var(--ink);">ndmueller29@gmail.com</a></p>
     <div class="foot-links">
-      <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="#" target="_blank" rel="noopener">Resume</a>
+      <a href="https://github.com/ndmueller29" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/nathaniel-mueller-84b9762b6/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="Mueller_Nathaniel_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </div>
 </footer>
