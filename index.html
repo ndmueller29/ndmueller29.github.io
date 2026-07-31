@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nathaniel — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1EFEA;
+    --paper-raised:#FBFAF7;
+    --ink:#1C1D1F;
+    --ink-soft:#55575C;
+    --rule:#CBC6BA;
+    --rule-strong:#A9A398;
+    --accent:#2C4A7C;
+    --accent-soft:#DCE3EF;
+    --accent-deep:#1B3157;
+    --marginalia:#A9631E;
+    --radius:2px;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent-soft);}
+
+  /* faint paper texture via grid */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px);
+    background-size: 100% 32px;
+    opacity:0.05;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  a{color:var(--accent);}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+
+  header.site{
+    position:sticky; top:0;
+    background:rgba(241,239,234,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+    z-index:10;
+  }
+  header.site .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+  }
+  .brand{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    letter-spacing:0.02em;
+  }
+  .brand strong{font-weight:500;}
+  nav.links{display:flex; gap:26px; font-size:14px;}
+  nav.links a{color:var(--ink-soft); text-decoration:none; font-family:'IBM Plex Mono',monospace;}
+  nav.links a:hover{color:var(--accent);}
+
+  /* HERO */
+  .hero{padding:96px 0 72px; position:relative;}
+  .hero .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--accent);
+    display:inline-flex; align-items:center; gap:8px;
+    margin-bottom:22px;
+  }
+  .hero .eyebrow::before{
+    content:"";
+    width:8px; height:8px;
+    background:var(--accent);
+    border-radius:50%;
+    display:inline-block;
+  }
+  h1.name{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:clamp(42px, 7vw, 72px);
+    line-height:1.05;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  h1.name em{
+    font-style:italic;
+    color:var(--accent);
+    font-weight:500;
+  }
+  .hero p.lede{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin:0 0 30px;
+  }
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    padding:11px 18px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    transition:all 0.15s ease;
+  }
+  .btn.primary{background:var(--ink); color:var(--paper);}
+  .btn.primary:hover{background:var(--accent-deep); border-color:var(--accent-deep);}
+  .btn:not(.primary):hover{background:var(--ink); color:var(--paper);}
+
+  /* SECTION HEADERS */
+  .section{padding:60px 0;}
+  .section + .section{border-top:1px solid var(--rule);}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:38px;
+  }
+  .section-head .num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--rule-strong);
+    font-size:14px;
+  }
+  .section-head h2{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:28px;
+    margin:0;
+  }
+  .section-head .rule{flex:1; height:1px; background:var(--rule);}
+
+  /* PROJECTS */
+  .project{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    margin-bottom:22px;
+    position:relative;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .project:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(28,29,31,0.07);
+    border-color:var(--rule-strong);
+  }
+  .project-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .project h3{
+    font-family:'Source Serif 4', serif;
+    font-size:22px;
+    font-weight:600;
+    margin:0;
+  }
+  .project h3 a{color:var(--ink); text-decoration:none; border-bottom:1px solid transparent;}
+  .project h3 a:hover{border-bottom-color:var(--accent); color:var(--accent);}
+  .project-links{font-family:'IBM Plex Mono',monospace; font-size:12.5px; display:flex; gap:14px; white-space:nowrap;}
+  .project-links a{color:var(--ink-soft); text-decoration:none;}
+  .project-links a:hover{color:var(--accent);}
+
+  .marginalia{
+    font-family:'Caveat', cursive;
+    color:var(--marginalia);
+    font-size:19px;
+    display:inline-block;
+    margin:2px 0 10px;
+  }
+
+  .project-body{display:grid; grid-template-columns: 1fr 1fr; gap:18px 26px; margin-top:14px;}
+  @media (max-width: 680px){ .project-body{grid-template-columns:1fr;} }
+  .project-field .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--rule-strong);
+    margin-bottom:4px;
+  }
+  .project-field p{margin:0; font-size:15px; color:var(--ink);}
+  .project-field.full{grid-column:1/-1;}
+
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    background:var(--accent-soft);
+    color:var(--accent-deep);
+    padding:4px 9px;
+    border-radius:var(--radius);
+  }
+
+  .qed{
+    float:right;
+    width:10px; height:10px;
+    background:var(--ink);
+    margin-left:6px;
+  }
+
+  /* SKILLS */
+  .skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:26px;}
+  .skill-group .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--accent);
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:8px;
+  }
+  .skill-group ul{list-style:none; margin:0; padding:0;}
+  .skill-group li{
+    font-size:15px;
+    padding:5px 0;
+    color:var(--ink-soft);
+    border-bottom:1px dashed var(--rule);
+  }
+  .skill-group li:last-child{border-bottom:none;}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns: 1.3fr 1fr; gap:40px;}
+  @media (max-width:680px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid p{color:var(--ink-soft); font-size:16px; max-width:56ch;}
+  .fact{padding:14px 0; border-top:1px solid var(--rule);}
+  .fact:last-child{border-bottom:1px solid var(--rule);}
+  .fact .k{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--rule-strong); text-transform:uppercase; letter-spacing:0.06em;}
+  .fact .v{font-size:15px; margin-top:2px;}
+
+  footer{
+    padding:50px 0 70px;
+    border-top:1px solid var(--rule);
+  }
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;}
+  footer p{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-soft); margin:0;}
+  footer .foot-links{display:flex; gap:20px;}
+  footer .foot-links a{color:var(--ink); text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:13px;}
+  footer .foot-links a:hover{color:var(--accent);}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity 0.5s ease, transform 0.5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand"><strong>Nathaniel</strong> / portfolio</div>
+    <nav class="links">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">open to Data Science · Quant Analytics · SWE roles — New York, NY</div>
+    <h1 class="name">Nathaniel<br><em>builds with numbers.</em></h1>
+    <p class="lede">Computational &amp; applied mathematics, CMU. I like problems that sit between math and code — pricing models, optimization, and systems that have to be both correct and fast. Below is a working set of projects, not a highlight reel.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="mailto:your-email@example.com">Email me</a>
+      <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#" target="_blank" rel="noopener">Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>Selected work</h2>
+      <span class="rule"></span>
+    </div>
+
+    <!-- PROJECT 1 -->
+    <article class="project reveal">
+      <div class="project-top">
+        <h3><a href="#" target="_blank" rel="noopener">Portfolio Optimization Engine</a></h3>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">code ↗</a>
+          <a href="#" target="_blank" rel="noopener">demo ↗</a>
+        </div>
+      </div>
+      <span class="marginalia">— started as a class project, kept going</span>
+      <div class="project-body">
+        <div class="project-field">
+          <div class="label">Problem</div>
+          <p>Retail investors don't have easy access to constrained mean-variance optimization with realistic transaction costs.</p>
+        </div>
+        <div class="project-field">
+          <div class="label">Approach</div>
+          <p>Convex optimization over a rolling asset universe, backtested against historical price data with turnover penalties.</p>
+        </div>
+        <div class="project-field full">
+          <div class="label">Result</div>
+          <p>Backtest showed a measurable Sharpe improvement over an equal-weight baseline across a 5-year window.<span class="qed"></span></p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">cvxpy</span><span class="tag">pandas</span><span class="tag">NumPy</span>
+      </div>
+    </article>
+
+    <!-- PROJECT 2 -->
+    <article class="project reveal">
+      <div class="project-top">
+        <h3><a href="#" target="_blank" rel="noopener">Options Pricing &amp; Greeks Simulator</a></h3>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">code ↗</a>
+        </div>
+      </div>
+      <span class="marginalia">— Black-Scholes, then I got curious about the Monte Carlo error</span>
+      <div class="project-body">
+        <div class="project-field">
+          <div class="label">Problem</div>
+          <p>Compare closed-form Black-Scholes pricing against Monte Carlo simulation and quantify convergence.</p>
+        </div>
+        <div class="project-field">
+          <div class="label">Approach</div>
+          <p>Vectorized Monte Carlo with variance reduction (antithetic variates), Greeks via finite differences.</p>
+        </div>
+        <div class="project-field full">
+          <div class="label">Result</div>
+          <p>Cut simulation runtime substantially versus a naive loop implementation while holding pricing error within a tight tolerance.<span class="qed"></span></p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Monte Carlo</span>
+      </div>
+    </article>
+
+    <!-- PROJECT 3 -->
+    <article class="project reveal">
+      <div class="project-top">
+        <h3><a href="#" target="_blank" rel="noopener">NYC Subway Delay Predictor</a></h3>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">code ↗</a>
+          <a href="#" target="_blank" rel="noopener">writeup ↗</a>
+        </div>
+      </div>
+      <span class="marginalia">— built after one too many late trains</span>
+      <div class="project-body">
+        <div class="project-field">
+          <div class="label">Problem</div>
+          <p>Predict delay likelihood on a given subway line using live MTA feed data.</p>
+        </div>
+        <div class="project-field">
+          <div class="label">Approach</div>
+          <p>Feature engineering on time-of-day, weather, and historical patterns; gradient-boosted classifier.</p>
+        </div>
+        <div class="project-field full">
+          <div class="label">Result</div>
+          <p>Reached a solid precision/recall balance on held-out data, deployed as a small live dashboard.<span class="qed"></span></p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">MTA API</span><span class="tag">Flask</span>
+      </div>
+    </article>
+
+    <!-- PROJECT 4 -->
+    <article class="project reveal">
+      <div class="project-top">
+        <h3><a href="#" target="_blank" rel="noopener">Distributed Task Scheduler</a></h3>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">code ↗</a>
+        </div>
+      </div>
+      <span class="marginalia">— the SWE-track project</span>
+      <div class="project-body">
+        <div class="project-field">
+          <div class="label">Problem</div>
+          <p>Learn distributed-systems fundamentals by building a scheduler that survives worker failures.</p>
+        </div>
+        <div class="project-field">
+          <div class="label">Approach</div>
+          <p>Leader election, heartbeat-based failure detection, and at-least-once task delivery across worker nodes.</p>
+        </div>
+        <div class="project-field full">
+          <div class="label">Result</div>
+          <p>Handled simulated node failures without losing queued tasks, tested with a fault-injection harness.<span class="qed"></span></p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Go</span><span class="tag">gRPC</span><span class="tag">Docker</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>Skills</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <div class="label">Languages</div>
+        <ul>
+          <li>Python</li>
+          <li>C++</li>
+          <li>Go</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="label">Data &amp; ML</div>
+        <ul>
+          <li>pandas / NumPy</li>
+          <li>scikit-learn</li>
+          <li>PyTorch</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="label">Quant &amp; Math</div>
+        <ul>
+          <li>Convex optimization</li>
+          <li>Stochastic processes</li>
+          <li>Monte Carlo methods</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="label">Tools</div>
+        <ul>
+          <li>Git / GitHub</li>
+          <li>Docker</li>
+          <li>Linux / bash</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>About</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="about-grid">
+      <p>I studied computational and applied mathematics at Carnegie Mellon, where I spent most of my time at the intersection of numerical methods and software — the kind of work where a proof and a bug report can feel like the same task. I recently moved to New York City and I'm looking for a role in data science, quant analytics, or software engineering where that combination is useful.</p>
+      <div>
+        <div class="fact"><div class="k">Education</div><div class="v">B.S., Computational &amp; Applied Mathematics — Carnegie Mellon University</div></div>
+        <div class="fact"><div class="k">Location</div><div class="v">New York, NY</div></div>
+        <div class="fact"><div class="k">Looking for</div><div class="v">Data Science · Quant Analytics · Software Engineering</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p>Let's talk — <a href="mailto:your-email@example.com" style="color:var(--ink);">your-email@example.com</a></p>
+    <div class="foot-links">
+      <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
