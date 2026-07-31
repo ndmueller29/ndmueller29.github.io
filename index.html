@@ -102,10 +102,27 @@
     font-weight:500;
   }
   .hero p.lede{
-    font-size:19px;
+    font-size:18px;
     color:var(--ink-soft);
-    max-width:60ch;
+    max-width:66ch;
     margin:0 0 30px;
+  }
+  .hero-facts{
+    display:flex;
+    flex-wrap:wrap;
+    gap:28px;
+    margin-bottom:34px;
+    padding-top:22px;
+    border-top:1px solid var(--rule);
+  }
+  .hero-facts .fact{padding:0; border:none;}
+  .hero-facts .k{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--rule-strong); text-transform:uppercase; letter-spacing:0.06em;}
+  .hero-facts .v{font-size:14.5px; margin-top:3px; max-width:32ch;}
+  .email-line{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:15px;
+    color:var(--ink);
+    margin:0 0 22px;
   }
   .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{
@@ -269,8 +286,6 @@
     <div class="brand"><strong>Nathaniel</strong> / portfolio</div>
     <nav class="links">
       <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -278,11 +293,14 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">open to Data Science · Quant Analytics · SWE roles — New York, NY</div>
-    <h1 class="name">Nathaniel<br><em>builds with numbers.</em></h1>
-    <p class="lede">Computational &amp; applied mathematics, CMU. I like problems that sit between math and code — pricing models, optimization, and systems that have to be both correct and fast. Below is a working set of projects, not a highlight reel.</p>
+    <h1 class="name">Nathaniel Mueller</h1>
+    <p class="lede">I studied Mathematical Sciences with a concentration in Computational and Applied Mathematics at Carnegie Mellon, graduating with University Honors. A semester in Copenhagen studying artificial neural networks and touring tech start-ups pulled me further toward the software side of that math. Most recently I worked as a Data Engineering Intern at Federated Hermes, building tooling that's still in production use today.</p>
+    <div class="hero-facts">
+      <div class="fact"><div class="k">Education</div><div class="v">B.S., Mathematical Sciences (Computational &amp; Applied Math) — Carnegie Mellon University, May 2026</div></div>
+      <div class="fact"><div class="k">Location</div><div class="v">New York, NY</div></div>
+    </div>
+    <p class="email-line">ndmueller29@gmail.com</p>
     <div class="hero-cta">
-      <a class="btn primary" href="mailto:ndmueller29@gmail.com">Email me</a>
       <a class="btn" href="https://github.com/ndmueller29" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/nathaniel-mueller-84b9762b6/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="Mueller_Nathaniel_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
@@ -438,74 +456,6 @@
       </div>
     </article>
 
-  </div>
-</section>
-
-<section class="section" id="skills">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="num">02</span>
-      <h2>Skills</h2>
-      <span class="rule"></span>
-    </div>
-    <div class="skill-groups">
-      <div class="skill-group">
-        <div class="label">Languages</div>
-        <ul>
-          <li>Python</li>
-          <li>C / C++</li>
-          <li>SQL</li>
-          <li>Java</li>
-          <li>MATLAB</li>
-          <li>R</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="label">Data &amp; ML</div>
-        <ul>
-          <li>NumPy / Pandas</li>
-          <li>PyTorch / TensorFlow</li>
-          <li>Keras</li>
-          <li>PySpark</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="label">Quant &amp; Math</div>
-        <ul>
-          <li>Math Finance</li>
-          <li>Operations Research</li>
-          <li>Differential Equations</li>
-          <li>Probability</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="label">Tools &amp; Platforms</div>
-        <ul>
-          <li>Databricks</li>
-          <li>Jupyter Notebook</li>
-          <li>MS Excel / Power Platform</li>
-          <li>Google Workspace</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="num">03</span>
-      <h2>About</h2>
-      <span class="rule"></span>
-    </div>
-    <div class="about-grid">
-      <p>I studied Mathematical Sciences with a concentration in Computational and Applied Mathematics at Carnegie Mellon, graduating with University Honors. A semester in Copenhagen studying artificial neural networks and touring tech start-ups pulled me further toward the software side of that math. Most recently I worked as a Data Engineering Intern at Federated Hermes, building tooling that's still in production use. I recently moved to New York City and I'm looking for a role in data science, quant analytics, or software engineering.</p>
-      <div>
-        <div class="fact"><div class="k">Education</div><div class="v">B.S., Mathematical Sciences (Computational &amp; Applied Math) — Carnegie Mellon University, May 2026</div></div>
-        <div class="fact"><div class="k">Location</div><div class="v">New York, NY</div></div>
-        <div class="fact"><div class="k">Looking for</div><div class="v">Data Science · Quant Analytics · Software Engineering</div></div>
-      </div>
-    </div>
   </div>
 </section>
 
