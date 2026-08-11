@@ -68,12 +68,44 @@
     letter-spacing:0.02em;
   }
   .brand strong{font-weight:500;}
-  nav.links{display:flex; gap:26px; font-size:14px;}
-  nav.links a{color:var(--ink-soft); text-decoration:none; font-family:'IBM Plex Mono',monospace;}
-  nav.links a:hover{color:var(--accent);}
+  .header-email{
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:13.5px;
+    font-family:'IBM Plex Mono',monospace;
+    transition:color 0.15s ease;
+  }
+  .header-email:hover{color:var(--accent);}
 
   /* HERO */
-  .hero{padding:96px 0 72px; position:relative;}
+  .hero{padding:56px 0 36px; position:relative;}
+  .scroll-hint{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:32px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    opacity:0.85;
+    transition:opacity 0.15s ease, color 0.15s ease;
+  }
+  .scroll-hint:hover{opacity:1; color:var(--accent);}
+  .scroll-hint-arrow{
+    width:8px; height:8px;
+    border-right:1.5px solid currentColor;
+    border-bottom:1.5px solid currentColor;
+    transform:rotate(45deg);
+    animation:scrollBob 1.6s ease-in-out infinite;
+  }
+  @keyframes scrollBob{
+    0%,100%{transform:rotate(45deg) translate(0,0);}
+    50%{transform:rotate(45deg) translate(3px,3px);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .scroll-hint-arrow{animation:none;}
+  }
   .hero .eyebrow{
     font-family:'IBM Plex Mono',monospace;
     font-size:13px;
@@ -316,10 +348,7 @@
 <header class="site">
   <div class="wrap">
     <div class="brand"><strong>Nathaniel Mueller</strong> / portfolio</div>
-    <nav class="links">
-      <a href="#work">Work</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <a class="header-email" href="mailto:ndmueller29@gmail.com">ndmueller29@gmail.com</a>
   </div>
 </header>
 
@@ -337,6 +366,10 @@
       <a class="btn" href="https://www.linkedin.com/in/nathaniel-mueller-84b9762b6/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="Mueller_Nathaniel_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
     </div>
+    <a class="scroll-hint" href="#work">
+      <span>Scroll down to see my work</span>
+      <span class="scroll-hint-arrow"></span>
+    </a>
   </div>
 </section>
 
