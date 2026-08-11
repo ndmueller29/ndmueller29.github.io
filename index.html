@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nathaniel Mueller — Portfolio</title>
+<title>Nathaniel Mueller - portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
     -webkit-font-smoothing:antialiased;
   }
   ::selection{background:var(--accent-soft);}
- 
+
   /* faint paper texture via grid */
   body::before{
     content:"";
@@ -46,11 +46,11 @@
     pointer-events:none;
     z-index:0;
   }
- 
+
   a{color:var(--accent);}
- 
+
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px; position:relative; z-index:1;}
- 
+
   header.site{
     position:sticky; top:0;
     background:rgba(241,239,234,0.92);
@@ -71,7 +71,7 @@
   nav.links{display:flex; gap:26px; font-size:14px;}
   nav.links a{color:var(--ink-soft); text-decoration:none; font-family:'IBM Plex Mono',monospace;}
   nav.links a:hover{color:var(--accent);}
- 
+
   /* HERO */
   .hero{padding:96px 0 72px; position:relative;}
   .hero .eyebrow{
@@ -139,7 +139,7 @@
   .btn.primary{background:var(--ink); color:var(--paper);}
   .btn.primary:hover{background:var(--accent-deep); border-color:var(--accent-deep);}
   .btn:not(.primary):hover{background:var(--ink); color:var(--paper);}
- 
+
   /* SECTION HEADERS */
   .section{padding:60px 0;}
   .section + .section{border-top:1px solid var(--rule);}
@@ -159,14 +159,7 @@
     margin:0;
   }
   .section-head .rule{flex:1; height:1px; background:var(--rule);}
- 
-  .marginalia{
-    font-family:'Caveat', cursive;
-    color:var(--marginalia);
-    font-size:19px;
-    display:inline-block;
-  }
- 
+
   /* PROJECTS — compact expandable list */
   .project-list{border-top:1px solid var(--rule);}
   .project-row{border-bottom:1px solid var(--rule);}
@@ -185,13 +178,6 @@
     transition:background 0.15s ease;
   }
   .project-row-head:hover{background:var(--paper-raised);}
-  .project-row-num{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    color:var(--rule-strong);
-    width:22px;
-    flex-shrink:0;
-  }
   .project-row-main{flex:1; min-width:0;}
   .project-row-title{
     font-family:'Source Serif 4', serif;
@@ -206,6 +192,13 @@
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
+    transition:color 0.2s ease;
+  }
+  .project-row.open .project-row-summary{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    color:var(--ink);
   }
   .project-row-tags{
     display:flex;
@@ -223,7 +216,7 @@
     margin-right:2px;
   }
   .project-row.open .chevron{transform:rotate(-135deg);}
- 
+
   .project-detail-wrap{
     display:grid;
     grid-template-rows:0fr;
@@ -240,7 +233,6 @@
     max-width:64ch;
     margin:0 0 14px;
   }
-  .project-detail .marginalia{margin:0 0 12px;}
   .project-detail .project-links{
     font-family:'IBM Plex Mono',monospace;
     font-size:12.5px;
@@ -249,7 +241,11 @@
   }
   .project-detail .project-links a{color:var(--ink-soft); text-decoration:none;}
   .project-detail .project-links a:hover{color:var(--accent);}
- 
+  .project-detail .project-links .not-shared{
+    color:var(--rule-strong);
+    font-style:italic;
+  }
+
   .tags{display:flex; flex-wrap:wrap; gap:8px;}
   .tag{
     font-family:'IBM Plex Mono',monospace;
@@ -259,13 +255,13 @@
     padding:4px 9px;
     border-radius:var(--radius);
   }
- 
+
   @media (max-width:640px){
     .project-row-summary{display:none;}
     .project-row-tags{display:none;}
     .project-detail{padding-left:30px;}
   }
- 
+
   /* SKILLS */
   .skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:26px;}
   .skill-group .label{
@@ -286,7 +282,7 @@
     border-bottom:1px dashed var(--rule);
   }
   .skill-group li:last-child{border-bottom:none;}
- 
+
   /* ABOUT */
   .about-grid{display:grid; grid-template-columns: 1.3fr 1fr; gap:40px;}
   @media (max-width:680px){.about-grid{grid-template-columns:1fr;}}
@@ -295,7 +291,7 @@
   .fact:last-child{border-bottom:1px solid var(--rule);}
   .fact .k{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--rule-strong); text-transform:uppercase; letter-spacing:0.06em;}
   .fact .v{font-size:15px; margin-top:2px;}
- 
+
   footer{
     padding:50px 0 70px;
     border-top:1px solid var(--rule);
@@ -305,10 +301,10 @@
   footer .foot-links{display:flex; gap:20px;}
   footer .foot-links a{color:var(--ink); text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:13px;}
   footer .foot-links a:hover{color:var(--accent);}
- 
+
   .reveal{opacity:0; transform:translateY(14px); transition:opacity 0.5s ease, transform 0.5s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
- 
+
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1; transform:none; transition:none;}
     html{scroll-behavior:auto;}
@@ -316,7 +312,7 @@
 </style>
 </head>
 <body>
- 
+
 <header class="site">
   <div class="wrap">
     <div class="brand"><strong>Nathaniel Mueller</strong> / portfolio</div>
@@ -326,7 +322,7 @@
     </nav>
   </div>
 </header>
- 
+
 <section class="hero">
   <div class="wrap">
     <h1 class="name">Nathaniel Mueller</h1>
@@ -343,45 +339,18 @@
     </div>
   </div>
 </section>
- 
+
 <section class="section" id="work">
   <div class="wrap">
     <div class="section-head">
-      <span class="num">01</span>
-      <h2>Projects</h2>
+      <h2>Selected work</h2>
       <span class="rule"></span>
     </div>
- 
+
     <div class="project-list">
-    <!-- PROJECT 1 -->
+    <!-- PROJECT 1: Danish Recycling Classifier -->
     <div class="project-row" data-project>
       <button class="project-row-head" aria-expanded="false">
-        <span class="project-row-num">01</span>
-        <span class="project-row-main">
-          <span class="project-row-title">Databricks Checkpointing System</span>
-          <p class="project-row-summary">Built a failure-recoverable checkpointing layer for overnight Databricks workflows at Federated Hermes.</p>
-        </span>
-        <span class="project-row-tags">
-          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Databricks</span>
-        </span>
-        <span class="chevron"></span>
-      </button>
-      <div class="project-detail-wrap">
-        <div class="project-detail-inner">
-          <div class="project-detail">
-            <span class="marginalia">— built during my internship at Federated Hermes</span>
-            <p>Sequential overnight notebook workflows on the Enterprise Data Platform had to rerun from scratch after any single failure. I designed a checkpointing layer in Python and SQL that preserves prior successful outputs, so a failed step can recover without redoing earlier work — cutting full reruns significantly. The notebooks are still in production use by the Enterprise Data Platform team today.</p>
-            <div class="project-links"><a href="#" target="_blank" rel="noopener">code ↗</a></div>
-            <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Databricks</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- PROJECT 2 -->
-    <div class="project-row" data-project>
-      <button class="project-row-head" aria-expanded="false">
-        <span class="project-row-num">02</span>
         <span class="project-row-main">
           <span class="project-row-title">Danish Recycling Classifier</span>
           <p class="project-row-summary">Trained a CNN to classify recyclable plastic types for my deep learning course in Copenhagen.</p>
@@ -394,44 +363,16 @@
       <div class="project-detail-wrap">
         <div class="project-detail-inner">
           <div class="project-detail">
-            <span class="marginalia">— final project for my deep learning course in Copenhagen</span>
             <p>Denmark's recycling system sorts plastic bottles into three standardized categories, which most people struggle to identify correctly by eye. I built and trained a convolutional neural network to classify bottle images into the three recyclable plastic types, delivered as the capstone for my Artificial Neural Networks and Deep Learning course.</p>
-            <div class="project-links"><a href="#" target="_blank" rel="noopener">code ↗</a></div>
-            <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">CNNs</span></div>
+            <div class="project-links"><a href="#" target="_blank" rel="noopener">code ↗</a><a href="#" target="_blank" rel="noopener">article ↗</a></div>
           </div>
         </div>
       </div>
     </div>
- 
-    <!-- PROJECT 3 -->
+
+    <!-- PROJECT 2: Risk112 -->
     <div class="project-row" data-project>
       <button class="project-row-head" aria-expanded="false">
-        <span class="project-row-num">03</span>
-        <span class="project-row-main">
-          <span class="project-row-title">GPS Positioning via Nonlinear Least Squares</span>
-          <p class="project-row-summary">Solved GPS positioning with Gauss-Newton and analyzed satellite geometry conditioning.</p>
-        </span>
-        <span class="project-row-tags">
-          <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Numerical Methods</span>
-        </span>
-        <span class="chevron"></span>
-      </button>
-      <div class="project-detail-wrap">
-        <div class="project-detail-inner">
-          <div class="project-detail">
-            <span class="marginalia">— numerical methods, applied to something I use every day</span>
-            <p>GPS positioning from satellite signals is a nonlinear system, and solution accuracy depends heavily on satellite geometry. I implemented the Gauss-Newton algorithm in Python to solve the positioning problem and analyzed system conditioning across multiple satellite configurations, connecting a numerical methods technique to a real-world system.</p>
-            <div class="project-links"><a href="#" target="_blank" rel="noopener">code ↗</a></div>
-            <div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Numerical Methods</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- PROJECT 4 -->
-    <div class="project-row" data-project>
-      <button class="project-row-head" aria-expanded="false">
-        <span class="project-row-num">04</span>
         <span class="project-row-main">
           <span class="project-row-title">Risk112 — Risk, from Scratch</span>
           <p class="project-row-summary">Recreated the board game Risk as a playable program from scratch.</p>
@@ -444,19 +385,38 @@
       <div class="project-detail-wrap">
         <div class="project-detail-inner">
           <div class="project-detail">
-            <span class="marginalia">— my first real object-oriented project</span>
             <p>Recreated the board game Risk as a playable program, including its map, territory ownership, and turn logic. Built in Python with object-oriented design and top-down decomposition, using recursive backtracking and pixel manipulation for the map — my first project that forced me to actually design a system before writing it.</p>
             <div class="project-links"><a href="#" target="_blank" rel="noopener">code ↗</a></div>
-            <div class="tags"><span class="tag">Python</span><span class="tag">OOP</span><span class="tag">Data Structures</span></div>
           </div>
         </div>
       </div>
     </div>
- 
-    <!-- PROJECT 5 -->
+
+    <!-- PROJECT 3: Databricks Checkpointing System -->
     <div class="project-row" data-project>
       <button class="project-row-head" aria-expanded="false">
-        <span class="project-row-num">05</span>
+        <span class="project-row-main">
+          <span class="project-row-title">Databricks Checkpointing System</span>
+          <p class="project-row-summary">Built a failure-recoverable checkpointing layer for overnight Databricks workflows at Federated Hermes.</p>
+        </span>
+        <span class="project-row-tags">
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Databricks</span>
+        </span>
+        <span class="chevron"></span>
+      </button>
+      <div class="project-detail-wrap">
+        <div class="project-detail-inner">
+          <div class="project-detail">
+            <p>Sequential overnight notebook workflows on the Enterprise Data Platform had to rerun from scratch after any single failure. I designed a checkpointing layer in Python and SQL that preserves prior successful outputs, so a failed step can recover without redoing earlier work — cutting full reruns significantly. The notebooks are still in production use by the Enterprise Data Platform team today.</p>
+            <div class="project-links"><span class="not-shared">code not publicly shared</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4: StarSync -->
+    <div class="project-row" data-project>
+      <button class="project-row-head" aria-expanded="false">
         <span class="project-row-main">
           <span class="project-row-title">StarSync — Intern Hackathon</span>
           <p class="project-row-summary">Led a team building an AI chatbot app for internal stock trade requests.</p>
@@ -469,22 +429,42 @@
       <div class="project-detail-wrap">
         <div class="project-detail-inner">
           <div class="project-detail">
-            <span class="marginalia">— led this one as technical lead</span>
             <p>Employees wanted an easier way to manage their own personal stock trade requests without navigating internal tools by hand. As technical lead, I directed a team of interns to design a Power BI app around a custom-trained AI chatbot that handled trade requests conversationally, shipping a working prototype within the hackathon window.</p>
+            <div class="project-links"><span class="not-shared">code not publicly shared</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 5: GPS Positioning -->
+    <div class="project-row" data-project>
+      <button class="project-row-head" aria-expanded="false">
+        <span class="project-row-main">
+          <span class="project-row-title">GPS Positioning via Nonlinear Least Squares</span>
+          <p class="project-row-summary">Solved GPS positioning with Gauss-Newton and analyzed satellite geometry conditioning.</p>
+        </span>
+        <span class="project-row-tags">
+          <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Numerical Methods</span>
+        </span>
+        <span class="chevron"></span>
+      </button>
+      <div class="project-detail-wrap">
+        <div class="project-detail-inner">
+          <div class="project-detail">
+            <p>GPS positioning from satellite signals is a nonlinear system, and solution accuracy depends heavily on satellite geometry. I implemented the Gauss-Newton algorithm in Python to solve the positioning problem and analyzed system conditioning across multiple satellite configurations, connecting a numerical methods technique to a real-world system.</p>
             <div class="project-links"><a href="#" target="_blank" rel="noopener">code ↗</a></div>
-            <div class="tags"><span class="tag">Power BI</span><span class="tag">AI Chatbot</span><span class="tag">Team Lead</span></div>
           </div>
         </div>
       </div>
     </div>
     </div>
- 
+
   </div>
 </section>
- 
+
 <footer id="contact">
   <div class="wrap">
-    <p><a href="mailto:ndmueller29@gmail.com" style="color:var(--ink);">ndmueller29@gmail.com</a></p>
+    <p>Let's talk — <a href="mailto:ndmueller29@gmail.com" style="color:var(--ink);">ndmueller29@gmail.com</a></p>
     <div class="foot-links">
       <a href="https://github.com/ndmueller29" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/nathaniel-mueller-84b9762b6/" target="_blank" rel="noopener">LinkedIn</a>
@@ -492,7 +472,7 @@
     </div>
   </div>
 </footer>
- 
+
 <script>
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
@@ -500,7 +480,7 @@
     });
   }, {threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
- 
+
   document.querySelectorAll('[data-project] .project-row-head').forEach(head=>{
     head.addEventListener('click', ()=>{
       const row = head.closest('.project-row');
@@ -510,7 +490,6 @@
     });
   });
 </script>
- 
+
 </body>
 </html>
- 
